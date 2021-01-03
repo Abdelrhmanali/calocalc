@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaloCalc | حاسب الكالوريز</title>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- navbar section  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">CaloCalc.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="kotla.html">احسب كتلة الجسم </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">الرئيسية <span class="sr-only">(current)</span></a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end navbar section  -->
+    <!-- main site section  -->
+    <div class="main">
+        <br><br><br>
+        <div class="container">
+            <div class="stp1 card">
+                <div class="card-body">
+                    <h1>.كالوكالوك</h1>                    
+                    <div class="stp1">
+                        <h2>1-حساب الـ BMR</h2>
+                        <p>هو السعرات الحرارية التي يحتاجها الجسم و يحرقها يومياً لأداء الوظائف الحيوية، بمعني انك تحرق السعرات دي حتى لو فضلت في السرير نايم طول اليوم. الرقم ده مهم جداً انك تكون عارفه لأن ده بيساعدك في تحديد السعرات اللي انت محتاجها في اليوم و ده بيتناسب مع الوزن و النوع</p>
+                        <div class="form-group">
+                            <label>- دخل وزنك </label>
+                            <input type="number" name="bmr" class="form-control" id="inp" placeholder="ادخل وزنك هنا...">
+                            <small id="emailHelp" class="form-text text-muted">الوزن بيستخدم لحساب الـBMR بناء علي نوعك عن طريق معادله حسابيه</small>
+                            <br><button onclick="calc();" class="cl1 btn btn-lg btn-secondary">احسب معدل الـBMR</button>
+                            <div id="show1" class="show1"></div><br><br>
+                            <button class="nx1 btn btn-block btn-lg btn-primary">الخطوة التالية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="stp2 card">
+                <div class="card-body">
+                    <div class="">
+                        <h2>2- حدد معدل نشاطك اليومي</h2>
+                        <p> حساب السعرات الحراريه اليوميه يأخذ بعين الاعتبار مستوى نشاطك اليومي، استعن بالجدول بالاسفل لتحديده:</p>
+                        <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">مستوي النشاط</th>
+                            <th scope="col">التعريف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>نشاط قليل</td>
+                            <td>نمط حياة غير نشيط، فقط الروتين اليومي (كاستخدام الكومبيوتر، الجلوس لفترات طويلة، استخدام المواصلات ووسائل الراحة باستمرار)</td>
+                            </tr>
+                            <tr>
+                            <td>نشاط اعتيادي</td>
+                            <td>نشاط بسيط مثل الذهاب الي الجامعه او العمل مشيا علي الاقدام</td>
+                            </tr>
+                            <tr>
+                            <td>نشاط عالي</td>
+                            <td>نشاط عالي مثل المشي يوميا لمدة ساعة او ركوب دراجه</td>
+                            </tr>
+                            <tr>
+                                <td>نشاط عالي جدا</td>
+                                <td>مستوى تنافسي من النشاط البدني للرياضيين، أعلى من فئة النشاط العالي كالذهاب الي الجيم 5 مرات في الاسبوع</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">- اختر معدل نشاطك</label>
+                            <select onchange="myFunction()" class="chose form-control" id="mySelect">
+                                <option value="0">اختر نوع نشاطك اليومي  </option>
+                                <option value="1">نشاط قليل </option>
+                                <option value="2">نشاط اعتيادي</option>
+                                <option value="3">نشاط عالي</option>
+                                <option value="4">نشاط عالي جدا</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div id="show2" class="show2"></div>
+                        </div><br><br>
+                        <button class="nx2 btn btn-block btn-lg btn-primary">الخطوة الآخيرة - معدل الكالوري</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="stp3 card">
+                <div class="card-body">
+                    <div class="">
+                        <h2>3-سعراتك اليوميه </h2>
+                        <p>قد تختلف مستويات النشاط البدني من شخص الى آخر وكذلك من وقت الى آخر. لذا, يمكنك اعتبار نتيجة مستوى سعراتك الحرارية هذه, كنقطة انطلاقة او بداية, التي يمكن ان تغيرها الى الاعلى أو الى الأسفل عند تغيير مستوى نشاطك البدني.</p>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="card final">
+                                    <img src="img/min.jpg" class="card-img-top" alt="img">
+                                    <div class="card-body">
+                                        <h5 class="card-title">الحد الادني للكالوري في اليوم هو</h5>
+                                        <h3 id="tx1"></h3>
+                                        <p class="card-text">الرقم اللي فوق بيمثل الحد الادني للكالوري الخاص بيك في اليوم. فلو كلت وجبات بقيمة كالوري اقل منه هتخس في الوزن</p>
+                                        <a href="#" class="btn btn-primary">ظبط وجباتك من هنا</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="card final">
+                                    <img src="img/max.jpg" class="card-img-top" alt="img">
+                                    <div class="card-body">
+                                        <h5 class="card-title">الحد الأقصي للكالوري في اليوم هو</h5>
+                                        <h3 id="tx2"></h3>
+                                        <p class="card-text">الرقم اللي فوق بيمثل الحد الأقصي للكالوري الخاص بيك في اليوم. فلو كلت وجبات بقيمة كالوري اكثر منه هتزيد في الوزن</p>
+                                        <a href="#" class="btn btn-primary">ظبط وجباتك من هنا</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end main site section  -->
+    <script src="js/jquery.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
